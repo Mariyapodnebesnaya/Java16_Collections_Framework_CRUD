@@ -6,7 +6,8 @@ public class GameTest {
     Player player2 = new Player(147, "Pavel", 350);
     Player player3 = new Player(155, "Irina", 100);
     Player player4 = new Player(146, "Katya", 250);
-    
+    Player player5 = new Player(111, "Igor", 351);
+
     @Test
     public void firstPlayerWins() {
         Game game = new Game();
