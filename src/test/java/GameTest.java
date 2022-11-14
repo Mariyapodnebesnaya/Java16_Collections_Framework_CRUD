@@ -49,6 +49,7 @@ public class GameTest {
     @Test
     public void firstUnregisteredPlayer() {
         Game game = new Game();
+
         game.register(player1);
         game.register(player2);
         Assertions.assertThrows(NotRegisteredException.class, () -> game.round("Unregistered  name", player2.getName()));
