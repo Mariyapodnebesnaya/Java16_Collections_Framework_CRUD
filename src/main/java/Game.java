@@ -1,11 +1,10 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
 public class Game {
-    protected List<Player> players = new ArrayList<>();
+    protected HashMap<String, Player> players = new HashMap<>();
 
     public void register(Player player) {
-        players.add(player);
+        players.put(player.getName(), player);
     }
 
     public Integer round(String playerName1, String playerName2) {
@@ -21,12 +20,11 @@ public class Game {
     }
 
     public Player findByName(String playerName) {
-        for (Player player : players) {
-            if (player.getName().equals(playerName)) {
-                return player;
-            }
+        Player player = players.get(playerName);
+        if (player == null) {
+            throw new NotRegisteredException(String.format("Element with name: %s not registered", playerName));
         }
-        throw new NotRegisteredException(String.format("Element with name: %s not registered", playerName));
+        return player;
     }
 }
 
